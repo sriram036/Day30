@@ -15,4 +15,12 @@ public class CabInvoice {
         }
         return aggregateFare;
     }
+
+    public Invoice generateInvoice(Ride[] rides) {
+        int totalNumberOfRides = rides.length;
+        double totalFare = calculateFare(rides);
+        double averageFare = totalFare / totalNumberOfRides;
+        Invoice invoice = new Invoice(totalNumberOfRides,totalFare,averageFare);
+        return invoice;
+    }
 }
